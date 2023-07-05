@@ -14,6 +14,16 @@ Terraform 으로 AWS IAM 관리하기
 * Terraform에서 사용할 IAM 수정 권한을 가진 AWS IAM 계정 생성 및 Access Key ID 및 Secret Key 저장
 * AWS $HOME/.aws/ 하위의 config 및 credential에 위 내용을 정의: [User Guide for awscli](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
 
+---
+
+## 실행 방법
+1. <pre>$ cd terraform/example</pre>
+2. <pre>$ terraform init</pre>
+3. <pre>$ terraform plan</pre>
+3. <pre>$ terraform apply</pre>
+
+
+---
 
 ## 참고 문헌
 * [Terraform AWS IAM Document](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key) 에서 aws_iam으로 필터링해서 검색
