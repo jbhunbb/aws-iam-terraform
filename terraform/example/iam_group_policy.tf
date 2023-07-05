@@ -1,9 +1,11 @@
+# IAM User Group 선언
 resource "aws_iam_group" "agroup" {
-  name = "terraform-iam-test-group"
+  name = "cloudbric-terrform-test"
 }
 
+# IAM Policy 선언
 resource "aws_iam_policy" "Aservice-test" {
-  name        = "terraform-bhji-test-policy"
+  name        = "terraform-service-Group"
   description = "Aservice test policy"
   policy      = <<EOF
 {
@@ -38,15 +40,18 @@ resource "aws_iam_policy" "Aservice-test" {
 EOF
 }
 
+# IAM User 선언
 resource "aws_iam_user" "user-b" {
-  name = "jbhunbb-test-2"
+  name = "terraform-bhji"
 }
 
+# Aservice-test IAM Policy 를 선언한 IAM User Group에 연결
 resource "aws_iam_group_policy_attachment" "test-attach" {
   group      = aws_iam_group.agroup.name
   policy_arn = aws_iam_policy.Aservice-test.arn
 }
 
+# user-b IAM User를 agroup에 할당
 resource "aws_iam_user_group_membership" "agroup_attach" {
   user = aws_iam_user.user-b.name
   groups = [
